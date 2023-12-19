@@ -1,0 +1,36 @@
+{% macro header(email, theme) %}
+<header class="header">
+    <div class="nav-container">
+        <a href="{{url_for('pages.index')}}" class="header__logo">
+            <img src="{{url_for('static', filename='logo-icon.svg')}}" class="logo__icon">
+            <span class="logo__name">Watchlist</span>   
+        </a>
+        <nav class="nav">
+            {%if not email %}
+                <a href="{{url_for('pages.login')}}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.login')}}">
+                    <span class="nav__item">Login</span>
+                </a>
+                <a href="{{url_for('pages.register')}}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.register')}}">
+                    <span class="nav__item">Register</span>
+                </a>   
+            {% else %}
+                <a href="{{url_for('pages.index')}}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.index')}}">
+                    <span class="nav__item">Movies</span>
+                </a>   
+                <a href="{{url_for('pages.logout')}}" class="nav__link">
+                    <span class="nav__item">Logout</span>
+                </a>   
+            {% endif %}
+            <a href="{{url_for('pages.toggle_theme', current_page=request.path)}}" class="nav__link">
+                <span class="nav__item">
+                    {% if theme == "dark" %}
+                        <img src="{{url_for('static', filename='sun-icon.svg')}}" class="nav__icon">
+                    {% else %}
+                        <img src="{{url_for('static', filename='moon-icon.svg')}}" class="nav__icon">
+                    {% endif %}
+                </span>
+            </a>
+        </nav>
+    </div>
+</header>
+{% endmacro %}
