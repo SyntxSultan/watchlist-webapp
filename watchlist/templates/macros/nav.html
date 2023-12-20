@@ -8,17 +8,17 @@
         <nav class="nav">
             {%if not email %}
                 <a href="{{url_for('pages.login')}}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.login')}}">
-                    <span class="nav__item">Login</span>
+                    <span class="nav__item">Giriş Yap</span>
                 </a>
                 <a href="{{url_for('pages.register')}}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.register')}}">
-                    <span class="nav__item">Register</span>
-                </a>   
+                    <span class="nav__item">Kayıt Ol</span>
+                </a>    
             {% else %}
                 <a href="{{url_for('pages.index')}}" class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.index')}}">
-                    <span class="nav__item">Movies</span>
+                    <span class="nav__item">Kütüphane</span>
                 </a>   
                 <a href="{{url_for('pages.logout')}}" class="nav__link">
-                    <span class="nav__item">Logout</span>
+                    <span class="nav__item">Çıkış Yap</span>
                 </a>   
             {% endif %}
             <a href="{{url_for('pages.toggle_theme', current_page=request.path)}}" class="nav__link">
