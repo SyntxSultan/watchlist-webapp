@@ -22,14 +22,14 @@
                 <div class="movie__watched">
                     {% if movie.last_watched %}
                         <p>
-                            Last watched: <a href="{{url_for('pages.watch_today', _id=movie._id)}}" class="watched__link">
+                            Son izleme: <a href="{{url_for('pages.watch_today', _id=movie._id)}}" class="watched__link">
                                 <time datetime="{{movie.last_watched}}">{{movie.last_watched.strftime("%d %b %Y")}}</time>
                             </a>
                         </p>
                     {% else %}
-                        <p><a href="{{url_for('pages.watch_today', _id=movie._id)}}" class="watched__link">Not watched yet.</a></p>
+                        <p><a href="{{url_for('pages.watch_today', _id=movie._id)}}" class="watched__link">İzlemediniz.</a></p>
                     {% endif %}
-                    <a class="movie__edit" href="{{url_for('pages.edit_movie', _id=movie._id)}}">Edit</a>
+                    <a class="movie__edit" href="{{url_for('pages.edit_movie', _id=movie._id)}}">Düzenle</a>
                 </div>
             </div>
             <div class="header__row">
@@ -38,18 +38,25 @@
                         <li class="movie__tag">{{tag}}</li>
                     {% endfor %}
                 </ul>
+                <div class="last__watch-container">
+                    <p class="last__session">Kaldığınız Yer:</p>
+                    <p class="last__session">S2</p>
+                    <p class="last__session">B3</p>
+                    <p class="last__session">1sa</p>
+                    <p class="last__session">45dk</p>
+                </div>
             </div>
         </header>
         {% if movie.description %}
             <p class="movie__description">{{movie.description}}</p>
         {% else %}
-            <p class="movie__description">No description yet. <a class="link" href="#">Add one?</a></p>
+            <p class="movie__description">Hiçbir açıklama yazmadınız. <a class="link" href="{{url_for('pages.edit_movie', _id=movie._id)}}">Düzenleyin?</a></p>
         {% endif %}
 
         <div class="movie__meta">
             {% if movie.cast %}
                 <div class="movie__casting">
-                    <h2>Casting</h2>
+                    <h2>Oyuncular</h2>
                     <ul class="list">
                         {% for actor in movie.cast %}
                             <li class="list__item">{{actor}}</li>
