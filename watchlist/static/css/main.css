@@ -74,8 +74,9 @@ body {
 }
 @media screen and (min-widght: 30em){
   .main{
-    padding-top: 5rem;
+    padding-top: 5rem; 
   }
+  
 }
 
 .header{
@@ -151,9 +152,13 @@ body {
 }
 
 .footer{
+  display: contents;
   padding: 1rem 0;
   color: var(--text-muted);
   text-align: center;
+}
+.footer__item{
+  padding-bottom: 0.3em;
 }
 
 /* Button styles that we'll share across our site */

@@ -39,6 +39,9 @@
 .table__cell{
     padding: 1.25rem 1rem;
 }
+.movie-watched{
+    text-decoration: none;
+}
 .table__cell--header{
     text-align: left;
     padding: 0.5rem 1rem;
@@ -46,6 +49,15 @@
 }
 .table__movieTable{
     font-weight: 600;
+}
+.table__movieTitle{
+    font-weight: 500;
+    display: inline;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-cell{
+    display: flex;
 }
 .table__movieDirector{
     font-size: 0.85em;
@@ -62,4 +74,26 @@
     display: block;
     text-align: center;
     font-size: 1.2rem;
+}
+.star{
+    width: 1em;
+    height: 1em;
+    fill: none;
+}
+.star--filled{
+    fill: #ffd02a;
+    color: #ffd02a;
+}
+.movie__rating{
+    display: flex;
+    margin-left: 0.5rem;
+}
+.rating__link{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: unset;
+}
+.rating__link:not(:first-of-type){
+    margin-left: 2px;
 }
