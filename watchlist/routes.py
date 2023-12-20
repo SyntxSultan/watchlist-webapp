@@ -99,6 +99,7 @@ def edit_movie(_id: str):
     if form.validate_on_submit():
         movie.title = form.title.data
         movie.description = form.description.data
+        movie.director = form.director.data
         movie.year = form.year.data
         movie.cast = form.cast.data
         movie.series = form.series.data

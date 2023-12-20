@@ -3,10 +3,10 @@ from wtforms import IntegerField, StringField, SubmitField, TextAreaField, URLFi
 from wtforms.validators import InputRequired, NumberRange, Email, Length, EqualTo
 
 class MovieForm(FlaskForm):
-    title = StringField("Title", validators=[InputRequired()])
-    director = StringField("Director", validators=[InputRequired()])
-    year = IntegerField("Year", validators=[InputRequired(), NumberRange(min=1878, message="Please enter a valid year")])
-    submit = SubmitField("Add Movie")
+    title = StringField("Başlık", validators=[InputRequired()])
+    director = StringField("Yönetmen", validators=[InputRequired()])
+    year = IntegerField("Yıl", validators=[InputRequired(), NumberRange(min=1878, message="Geçerli bir yıl girin!")])
+    submit = SubmitField("Film ekle")
 
 class StringListField(TextAreaField):
     def _value(self):
@@ -22,20 +22,20 @@ class StringListField(TextAreaField):
             self.data = []
 
 class ExtendedMovieForm(MovieForm):
-    cast = StringListField("Cast")
+    cast = StringListField("Oyuncular")
     series = StringListField("Series")
-    tags = StringListField("Tags")
-    description = TextAreaField("Description")
-    video_link = URLField("Video link")
-    submit = SubmitField("Submit")
+    tags = StringListField("Etiketler")
+    description = TextAreaField("Açıklama")
+    video_link = URLField("Video linki")
+    submit = SubmitField("Onayla")
 
 class RegisterForm(FlaskForm):
     email = StringField("Email", validators=[InputRequired(), Email()])
-    password = PasswordField("Password", validators=[InputRequired(), Length(min=4, max=20, message="Your password must be between 4 and 20 characters long.")])
-    confirm_password = PasswordField("Confirm Password", validators=[InputRequired(), EqualTo("password", message="This password did not match the one in the password field")])
-    submit = SubmitField("Register")
+    password = PasswordField("Şifre", validators=[InputRequired(), Length(min=4, max=20, message="Şifreniz 4 ile 20 karakter arasında olmalı.")])
+    confirm_password = PasswordField("Şifreyi doğrula", validators=[InputRequired(), EqualTo("password", message="Şifreler eşleşmiyor")])
+    submit = SubmitField("Kayıt Ol")
 
 class LoginForm(FlaskForm):
     email = StringField("Email", validators=[InputRequired(), Email()])
-    password = PasswordField("Password", validators=[InputRequired()])
-    submit = SubmitField("Login")
+    password = PasswordField("Şifre", validators=[InputRequired()])
+    submit = SubmitField("Giriş")
